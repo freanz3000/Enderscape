@@ -55,6 +55,9 @@ gradle.taskGraph.whenReady { graph ->
 		archiveVersion.set("${mod_version}+mc${minecraft_version}")
 	}
 }
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
 
 loom {
 	accessWidenerPath = file("src/main/resources/enderscape.accesswidener")
